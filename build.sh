@@ -19,5 +19,5 @@ export MA=/opt/MouseAtlas
 # to run the tests after having built JavaWoolz cd to uk/ac/mrc/hgu/Wlz/Test 
 # and run
 #   make demo
-./configure --with-static-woolz=$MA --with-static-nifti=$MA --with-static-tiff=$MA --with-static-jpeg=$MA --enable-openmp --enable-optimise --enable-test
+./configure --prefix=$MA --with-static-woolz=$MA --with-static-nifti=$MA --with-static-tiff=$MA --with-static-jpeg=$MA --enable-openmp --enable-optimise --enable-test
 
