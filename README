@@ -1,0 +1,15 @@
+JavaWoolz: A Java binding to the Woolz Image Processing System
+
+If building JavaWoolz then the build requires all the Woolz libraries
+(including external file format libraries such as Jpeg, NIfTI and Tiff)
+to be built with relocatable code (use -fPIC with gcc).
+
+A prefix can be given in the configure stage to define where the programs,
+libraries are will be installed, conventionally this is /opt/MouseAtlas.
+Use
+
+./configure --help
+
+to see all the options available.
+
+See the script build.sh for typical configuration options.
