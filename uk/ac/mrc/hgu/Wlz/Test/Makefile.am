@@ -1,8 +1,8 @@
 ##
 # \file         Makefile.am
 # \author       Bill Hill
-# \date         July 2012
-# \version      $Id$
+# \date         May 2015
+# \version      $Id: cb0eb28350192f6c399f4a2158b23b6cb2dd5c2a $
 # \par
 # Address:
 #               MRC Human Genetics Unit,
@@ -34,7 +34,6 @@
 ##
 
 
-if BUILD_JAVA
 JAVASRCS		= \
 			  WlzAffineTransformLSq.java \
 			  WlzArrayStats.java \
@@ -121,4 +120,3 @@ demo:			$(JAVACLS)
 			@echo "shows grey value (the window needs to be"
 			@echo "resized):"
 			$(JAVA) $(JAVAFLAGS) WlzViewer t0.wlz
-endif

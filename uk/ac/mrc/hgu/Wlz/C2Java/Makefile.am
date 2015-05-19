@@ -1,8 +1,8 @@
 ##
 # \file         Makefile.am
 # \author       Bill Hill
-# \date         July 2012
-# \version      $Id$
+# \date         May 2015
+# \version      $Id: 869f6475f9f5899026691ac6356516ccaf177d28 $
 # \par
 # Address:
 #               MRC Human Genetics Unit,
@@ -33,37 +33,29 @@
 # \brief        Process this file with automake to produce Makefile.in
 ##
 
-if BUILD_JAVA
-WLZTOP			= ../../../../../../../
-
 WLZINCDIRS		= \
-			-I$(WLZTOP)/libAlc \
-			-I$(WLZTOP)/libAlg \
-			-I$(WLZTOP)/libWlz \
-			-I$(WLZTOP)/libWlzExtFF \
-			-I$(WLZTOP)/libbibfile \
-			-I$(WLZTOP)/libWlzBnd
+			-I${WOOLZ_DIR}/include
 
 WLZINCLIDES		= \
-			$(WLZTOP)libAlc/Alc.h \
-			$(WLZTOP)libAlc/AlcType.h \
-			$(WLZTOP)libAlc/AlcProto.h \
-			$(WLZTOP)libAlg/Alg.h \
-			$(WLZTOP)libAlg/AlgType.h \
-			$(WLZTOP)libAlg/AlgProto.h \
-			$(WLZTOP)libWlz/Wlz.h \
-			$(WLZTOP)libWlz/WlzError.h \
-			$(WLZTOP)libWlz/WlzType.h \
-			$(WLZTOP)libWlz/WlzDebug.h \
-			$(WLZTOP)libWlz/WlzProto.h \
-			$(WLZTOP)libWlz/WlzMacro.h \
-			$(WLZTOP)libbibfile/bibFile.h \
-			$(WLZTOP)libWlzExtFF/WlzExtFF.h \
-			$(WLZTOP)libWlzExtFF/WlzExtFFType.h \
-			$(WLZTOP)libWlzExtFF/WlzExtFFProto.h \
-			$(WLZTOP)libWlzBnd/WlzBnd.h \
-			$(WLZTOP)libWlzBnd/WlzBndType.h \
-			$(WLZTOP)libWlzBnd/WlzBndProto.h
+			${WOOLZ_DIR}/include/Alc.h \
+			${WOOLZ_DIR}/include/AlcType.h \
+			${WOOLZ_DIR}/include/AlcProto.h \
+			${WOOLZ_DIR}/include/Alg.h \
+			${WOOLZ_DIR}/include/AlgType.h \
+			${WOOLZ_DIR}/include/AlgProto.h \
+			${WOOLZ_DIR}/include/Wlz.h \
+			${WOOLZ_DIR}/include/WlzError.h \
+			${WOOLZ_DIR}/include/WlzType.h \
+			${WOOLZ_DIR}/include/WlzDebug.h \
+			${WOOLZ_DIR}/include/WlzProto.h \
+			${WOOLZ_DIR}/include/WlzMacro.h \
+			${WOOLZ_DIR}/include/bibFile.h \
+			${WOOLZ_DIR}/include/WlzExtFF.h \
+			${WOOLZ_DIR}/include/WlzExtFFType.h \
+			${WOOLZ_DIR}/include/WlzExtFFProto.h \
+			${WOOLZ_DIR}/include/WlzBnd.h \
+			${WOOLZ_DIR}/include/WlzBndType.h \
+			${WOOLZ_DIR}/include/WlzBndProto.h
 
 all:		 	binding
 
@@ -104,4 +96,3 @@ WlzC2Java.class:	WlzC2Java.java
 WlzC2Java.c:		WlzC2Java.cpp $(WLZINCLIDES)
 			$(CC) -E $(WLZINCDIRS) -DWLZ_EXT_BIND \
 			      WlzC2Java.cpp > WlzC2Java.c
-endif

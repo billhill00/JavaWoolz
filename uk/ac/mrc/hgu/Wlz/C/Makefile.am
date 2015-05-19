@@ -1,8 +1,8 @@
 ##
 # \file         Makefile.am
 # \author       Bill Hill
-# \date         July 2012
-# \version      $Id$
+# \date         May 2015
+# \version      $Id: 8cdac014e62e3bec55eddc0ffa85ab22bb5f2fb9 $
 # \par
 # Address:
 #               MRC Human Genetics Unit,
@@ -33,26 +33,11 @@
 # \brief        Process this file with automake to produce Makefile.in
 ##
 
-if BUILD_JAVA
 AM_CPPFLAGS		= \
 			  -I. \
-			  -I$(top_srcdir)/libReconstruct \
-			  -I$(top_srcdir)/libWlzExtFF \
-			  -I$(top_srcdir)/libhguDlpList \
-			  -I$(top_srcdir)/libbibfile \
-			  -I$(top_srcdir)/libWlzBnd \
-			  -I$(top_srcdir)/libWlz \
-			  -I$(top_srcdir)/libAlg \
-			  -I$(top_srcdir)/libAlc \
 			  $(all_includes)
 
-libJWlz_la_LIBADD	= -L$(top_srcdir)/libWlzExtFF/.libs -lWlzExtFF \
-			  -L$(top_srcdir)/libhguDlpList/.libs -lhguDlpList \
-			  -L$(top_srcdir)/libbibfile/.libs -lbibfile \
-			  -L$(top_srcdir)/libWlzBnd/.libs -lWlzBnd \
-			  -L$(top_srcdir)/libWlz/.libs -lWlz \
-			  -L$(top_srcdir)/libAlg/.libs -lAlg \
-			  -L$(top_srcdir)/libAlc/.libs -lAlc \
+libJWlz_la_LIBADD	= \
 			  -L$(libdir) \
 			  ${LIBS_EXTFF} \
 			  ${LIBS}
@@ -98,4 +83,3 @@ WlzFileStream.c:
 			$(CP) ../HandCodedC/*.h .
 			$(CP) ../C2Java/Binding/WlzObjectC2J.c .
 			$(CP) ../C2Java/Binding/WlzObjectC2J.h .
-endif

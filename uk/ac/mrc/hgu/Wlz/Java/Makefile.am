@@ -1,8 +1,8 @@
 ##
 # \file         Makefile.am
 # \author       Bill Hill
-# \date         July 2012
-# \version      $Id$
+# \date         May 2015
+# \version      $Id: ecfe815d53dbdcdfd2f907c31989c2193c17366d $
 # \par
 # Address:
 #               MRC Human Genetics Unit,
@@ -33,10 +33,8 @@
 # \brief        Process this file with automake to produce Makefile.in
 ##
 
-if BUILD_JAVA
-WLZTOP                  = ../../../../../../..
-CLASSPATH		= $(WLZTOP)/java
-JAVAROOT		= $(WLZTOP)/java
+CLASSPATH		= ${abs_top_srcdir}
+JAVAROOT		= ${abs_top_srcdir}
 
 JAR			= JWlz.jar
 
@@ -91,7 +89,7 @@ $(JWlzClass):		$(JWlz_JAVA)
 
 clean:			
 			$(RM) *.java *.javapp ../*.class \
-			      classJWlz.stamp $(JAVAROOT)/$(JAR)
+			      classJWlz.stamp $(JAVATOP)/$(JAR)
 
 WlzBase.java:
 			$(CP) ../C2Java/Binding/Enum/*.java .
@@ -102,4 +100,3 @@ WlzBase.java:
 WlzObject.java:		WlzBase.java WlzObject.javapp
 			cpp -C -I. WlzObject.javapp | \
 			grep -v '^#' > WlzObject.java
-endif
