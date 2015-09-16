@@ -33,7 +33,7 @@
 # \brief        Process this file with autoconf to produce a configure script.
 ##
 
-m4_define([JAVA_WOOLZ_VERSION], [1.6.0])
+m4_define([JAVA_WOOLZ_VERSION], [1.6.1])
 
 AC_INIT(JavaWoolz, JAVA_WOOLZ_VERSION, ma-tech@igmm.ed.ac.uk)
 AC_CANONICAL_TARGET
