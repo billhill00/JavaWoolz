@@ -33,7 +33,7 @@
 # \brief        Process this file with autoconf to produce a configure script.
 ##
 
-m4_define([JAVA_WOOLZ_VERSION], [1.6.1])
+m4_define([JAVA_WOOLZ_VERSION], [1.6.15])
 
 AC_INIT(JavaWoolz, JAVA_WOOLZ_VERSION, ma-tech@igmm.ed.ac.uk)
 AC_CANONICAL_TARGET
@@ -54,6 +54,7 @@ AC_ENABLE_SHARED
 CP="cp"
 RM="rm -f"
 RMRF="rm -rf"
+SIMD=''
 CDEF_ARCH=""
 USE_CTAGS=1
 USE_ETAGS=0
@@ -234,7 +235,11 @@ AC_ARG_ENABLE(optimise,
 	  CFLAGS="${CFLAGS} -fPIC -O2 -fomit-frame-pointer"
 	  ;;
 	x86_64|amd64)
-          CFLAGS="${CFLAGS} -fPIC -O3 -msse3"
+	  if test "x$SIMD" = "x"
+	  then
+	    SIMD="-msse3"
+	  fi
+          CFLAGS="${CFLAGS} -fPIC -O3"
 	  ;;
         *)
           CFLAGS="${CFLAGS} -fPIC -O2"
@@ -270,6 +275,10 @@ AC_ARG_ENABLE(optimise,
       fi
     fi
     ])
+
+AC_ARG_ENABLE(avx2,
+  [AC_HELP_STRING([--enable-avx2],[enable AVX2 SIMD optimizations])],
+  SIMD='-mavx2')
 
 AC_ARG_ENABLE(openmp,
   [  --enable-openmp	build with openmp flags set],
@@ -499,6 +508,9 @@ case $host in
     LIBS="-lregex $LIBS"
     ;;
 esac
+
+AS_IF([ test "$CC" = "gcc" -a "x$enable_optimise" = "xyes" ],
+      CFLAGS="$CFLAGS $SIMD")
 
 AC_OUTPUT(Makefile)
 
