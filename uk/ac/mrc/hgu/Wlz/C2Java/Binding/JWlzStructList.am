@@ -100,6 +100,7 @@ JWlzStructList		= \
 			WlzFRect.java \
 			WlzConvolution.java \
 			WlzRsvFilter.java \
+			WlzCMeshEntCore.java \
 			WlzCMeshNod2D.java \
 			WlzCMeshNod2D5.java \
 			WlzCMeshNod3D.java \
@@ -126,6 +127,7 @@ JWlzStructList		= \
 			WlzCMeshEntRes.java \
 			WlzCMeshRes.java \
 			WlzCMeshEntP.java \
+			WlzCMeshEntPP.java \
 			WlzCMesh2D.java \
 			WlzCMesh2D5.java \
 			WlzCMesh3D.java \
