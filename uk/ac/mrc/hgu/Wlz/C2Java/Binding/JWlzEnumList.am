@@ -1,5 +1,6 @@
 JWlzEnumList		= \
 			WlzGreyType.java \
+			WlzGreyTableType.java \
 			WlzObjectType.java \
 			WlzEMAPPropertyType.java \
 			WlzRasterDir.java \
@@ -29,6 +30,7 @@ JWlzEnumList		= \
 			WlzWindowFnType.java \
 			WlzSampleFn.java \
 			WlzScalarFeatureType.java \
+			WlzDGTensorFeatureType.java \
 			WlzVertexType.java \
 			WlzMarkerType.java \
 			WlzGMModelType.java \
